@@ -9,7 +9,7 @@
 
   <body ng-controller='toDoCtrl'>
 
-    <form name="newForm" ng-click='submitToDo()' novalidate>
+    <form name="newForm" ng-click='submitToDo()'>
       <input type="text" name="task" placeholder="New task to do..." ng-model="newToDo.text" ng-required='true'>
       <input type="date" name="due-date" ng-model="newToDo.dueDate" ng-required='true'>
       <input type="submit" value = "Create To-Do">
@@ -28,12 +28,7 @@
       </thead>
 
       <tbody>
-        <tr ng-repeat="item in items | filterOutCompleted:completedFilter.active">
-          <td>{{ item.text }}</td>
-          <td>{{ item.dueDate | date:'shortDate' }}</td>
-          <td><input type="checkbox" ng-model="item.completed"></td>
-          <td><a href="#" ng-click="destroy(item)">X</a></td>
-        </tr>
+        <tr to-do-item ng-repeat="item in items | filterOutCompleted:completedFilter.active" item="item" destroy="destroy(item)"></tr>
       </tbody>
 
     </table>
@@ -53,6 +48,7 @@
   <script src = "js/controllers/toDoCtrl.js"></script>
 
   <!-- directives -->
+  <script src = "js/directives/toDoItem.js"></script>
 
   <!-- filters -->
   <script src = "js/filters/toDoFilters.js"></script>
