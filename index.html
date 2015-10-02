@@ -10,7 +10,7 @@
   <body ng-controller='toDoCtrl'>
 
     <table>
-      <tr>
+      <tr ng-repeat="item in items">
         <td>{{ item.text }}</td>
         <td>{{ item.dueDate | date:'shortDate' }}</td>
         <td>Not Completed. One day this will be a checkbox.</td>
