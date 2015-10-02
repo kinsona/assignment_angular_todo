@@ -1,6 +1,6 @@
 toDo.controller('toDoCtrl',
-  ['$scope',
-  function($scope){
+  ['$scope', '$window',
+  function($scope, $window){
 
     $scope.items =  [{
                       text: "Get groceries from the store",
@@ -23,6 +23,13 @@ toDo.controller('toDoCtrl',
                       completed: false
                     }];
 
+    $scope.submitToDo = function() {
+      if ($scope.newForm.$valid) {
+        $scope.items.push($scope.newToDo);
+        $scope.newToDo = {};
+        $scope.newForm.$setPristine();
+      };
+    };
 
 
   }]);

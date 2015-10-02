@@ -9,6 +9,13 @@
 
   <body ng-controller='toDoCtrl'>
 
+    <form name="newForm" ng-click='submitToDo()' novalidate>
+      <input type="text" name="task" placeholder="New task to do..." ng-model="newToDo.text" ng-required='true'>
+      <input type="date" name="due-date" ng-model="newToDo.dueDate" ng-required='true'>
+      <input type="submit" value = "Create To-Do">
+    </form>
+
+
     <table>
       <tr ng-repeat="item in items">
         <td>{{ item.text }}</td>
