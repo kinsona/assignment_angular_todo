@@ -2,6 +2,18 @@ toDo.controller('toDoCtrl',
   ['$scope', '$window',
   function($scope, $window){
 
+    $scope.completedFilter = {
+      active: false,
+      prompt: function() {
+        if (this.active) {
+          return 'Show';
+        } else {
+          return 'Hide'
+        }
+      }
+    };
+
+
     $scope.items =  [{
                       text: "Get groceries from the store",
                       dueDate: new Date(),
@@ -57,6 +69,11 @@ toDo.controller('toDoCtrl',
       };
       return count;
     };
+
+
+    $scope.toggleCompleted = function() {
+      $scope.completedFilter.active ^= true;
+    }
 
 
   }]);

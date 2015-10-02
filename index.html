@@ -28,7 +28,7 @@
       </thead>
 
       <tbody>
-        <tr ng-repeat="item in items">
+        <tr ng-repeat="item in items | filterOutCompleted:completedFilter.active">
           <td>{{ item.text }}</td>
           <td>{{ item.dueDate | date:'shortDate' }}</td>
           <td><input type="checkbox" ng-model="item.completed"></td>
@@ -38,6 +38,7 @@
 
     </table>
 
+    <button ng-click="toggleCompleted()">{{completedFilter.prompt()}} completed tasks</button>
     <button ng-click="clearCompleted()">Clear completed tasks</button>
 
 
@@ -53,5 +54,7 @@
 
   <!-- directives -->
 
+  <!-- filters -->
+  <script src = "js/filters/toDoFilters.js"></script>
 
 </html>
