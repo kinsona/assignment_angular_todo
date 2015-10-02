@@ -32,4 +32,31 @@ toDo.controller('toDoCtrl',
     };
 
 
+    $scope.destroy = function(item) {
+      var index = $scope.items.indexOf(item);
+      $scope.items.splice(index, 1);
+    };
+
+
+    $scope.clearCompleted = function() {
+      // sort Completed to front;
+      $scope.items.sort(function(a, b) { return b.completed } );
+
+      var numberCompleted = $scope.countCompleted();
+      $scope.items.splice(0, numberCompleted);
+    }
+
+
+    $scope.countCompleted = function() {
+      var count = 0;
+      for(i=0; i<$scope.items.length; i++) {
+        if (!$scope.items[i].completed) {
+          count = i;
+          break;
+        };
+      };
+      return count;
+    };
+
+
   }]);
