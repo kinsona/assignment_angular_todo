@@ -42,6 +42,7 @@ toDo.factory('toDoService', function() {
     // sort Completed to front;
     this._items.sort(function(a, b) { return b.completed } );
 
+    // removing from back of array is not destructive
     var numberCompleted = this._countCompleted();
     this._items.splice(0, numberCompleted);
   }

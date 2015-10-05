@@ -21,7 +21,8 @@ toDo.controller('toDoCtrl',
       if ($scope.newForm.$valid) {
         toDoService.saveNew($scope.newToDo);
         $scope.newToDo = {};
-        $scope.newForm.$setPristine();
+        $scope.newForm.$pristine = true;
+        // maybe set pristine on each inputs?
       }
     };
 

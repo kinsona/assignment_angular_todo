@@ -5,6 +5,7 @@ toDo.filter('filterOutCompleted', function() {
 
     if (!active) { return allTasks };
 
+    // allTasks.forEach( function...)
     angular.forEach(allTasks, function(task) {
       if (!task.completed) { output.push(task) };
     });
